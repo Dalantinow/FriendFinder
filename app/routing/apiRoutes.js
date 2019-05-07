@@ -9,6 +9,8 @@ module.exports = function (app) {
         var newFriend = req.body;
         newFriend.routename = newFriend.name.replace(/\s+/g, "").toLowerCase();
         friendsData.push(newFriend)
+        // Attempting to make an algorithm to run through all the friends, then run through all the differences of newFriend and friends[i], then return the lowest difference of all of them
+        // I am having trouble getting this to work however
         for (var i = 0; i < friends.length; i++) {
             var totalDifference = ((newFriend.scores[0] - friends[i].scores[0]) * -1) +
                 ((newFriend.scores[1] - friends[i].scores[1]) * -1) +
@@ -22,6 +24,6 @@ module.exports = function (app) {
                 ((newFriend.scores[9] - friends[i].scores[9]) * -1);
         };
         
-        res.json(totalDifference)
+        res.json(bestMatch)
     });
 };

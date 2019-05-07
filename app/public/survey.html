@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+ 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,18 +17,19 @@
 
 <body>
     <form>
-
         <div class="form-group">
             <label for="name">
                 <h1>Name:</h1>
                 <input type="name" class="form-control" id="nameguy" placeholder="name">
             </label>
+            <hr>
             <form>
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Upload Profile Image File:</label>
                     <input type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
             </form>
+            <hr>
             
         </div>
         <h2>Fill out the questionnaire, 1 signifies you strongly disagree and 5 means you strongly agree.</h2>
@@ -140,11 +142,15 @@
                 <option>5</option>
             </select>
         </div>
-
-
+        <hr>
         <button class="submit" type="submit" class="btn btn-primary">Submit</button>
-
     </form>
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <a href="/api/friends">All Candidates JSON</a> 
+        </div>
+    </footer>
 </body>
 <!-- <script type="text/javascript" src="javascript/server.js"></script> -->
 <script>
@@ -169,19 +175,19 @@
         
         $.post("/api/friends", newFriend, 
             function (data) {
-                alert("New friend info added!")
-                alert("Your new friend is")
-                $("#nameguy").val("").trim();
+                alert("Your friend info added! Your new friend is" + data)
+                $("#nameguy").val("");
                 $("#exampleFormControlFile1").val("");
-                $("#exampleFormControlSelect1").val("");
-                $("#exampleFormControlSelect2").val("");
-                $("#exampleFormControlSelect4").val("");
-                $("#exampleFormControlSelect5").val("");
-                $("#exampleFormControlSelect6").val("");
-                $("#exampleFormControlSelect7").val("");
-                $("#exampleFormControlSelect8").val("");
-                $("#exampleFormControlSelect9").val("");
-                $("#exampleFormControlSelect10").val("");
+                $("#exampleFormControlSelect1").val("1");
+                $("#exampleFormControlSelect2").val("1");
+                $("#exampleFormControlSelect3").val("1");
+                $("#exampleFormControlSelect4").val("1");
+                $("#exampleFormControlSelect5").val("1");
+                $("#exampleFormControlSelect6").val("1");
+                $("#exampleFormControlSelect7").val("1");
+                $("#exampleFormControlSelect8").val("1");
+                $("#exampleFormControlSelect9").val("1");
+                $("#exampleFormControlSelect10").val("1");
             });
     });
 </script>
