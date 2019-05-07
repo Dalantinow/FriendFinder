@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Friend Finder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <form>
+
+        <div class="form-group">
+            <label for="name">
+                <h1>Name:</h1>
+            </label>
+            <form>
+                <div class="form-group">
+                  <label for="exampleFormControlFile1">Upload Image File:</label>
+                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+              </form>
+            <input type="name" class="form-control" id="nameguy" placeholder="name">
+        </div>
+        <h2>Fill out the questionnaire, 1 signifies you strongly disagree and 5 means you strongly agree.</h2>
+        <div class="form-group-one">
+            <label for="exampleFormControlSelect1">I have a positive relationship with my co-workers.</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group-one">
+            <label for="exampleFormControlSelect1">I have never made a mistake at work.</label>
+            <select class="form-control" id="exampleFormControlSelect2">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+        <div class="form-group-one">
+            <label for="exampleFormControlSelect1">Most people can not be trusted.</label>
+            <select class="form-control" id="exampleFormControlSelect3">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+        <div class="form-group-one">
+            <label for="exampleFormControlSelect1">If someone is undercharged in a shop they should tell the
+                cashier.</label>
+            <select class="form-control" id="exampleFormControlSelect4">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+        <div class="form-group-one">
+            <label for="exampleFormControlSelect1">I rarely worry about how well I’m doing at my job.</label>
+            <select class="form-control" id="exampleFormControlSelect5">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+        <div class="form-group-one">
+            <label for="exampleFormControlSelect1">I have had counseling to help me cope with stress.</label>
+            <select class="form-control" id="exampleFormControlSelect6">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+        <div class="form-group-one">
+            <label for="exampleFormControlSelect1">I have never felt angry at a supervisor or manager.</label>
+            <select class="form-control" id="exampleFormControlSelect7">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+        <div class="form-group-one">
+            <label for="exampleFormControlSelect1">Computer Hackers are punished too harshly.</label>
+            <select class="form-control" id="exampleFormControlSelect8">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+        <div class="form-group-one">
+            <label for="exampleFormControlSelect1">When driving, I sometimes get angry with other road users.</label>
+            <select class="form-control" id="exampleFormControlSelect9">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+        <div class="form-group-one">
+            <label for="exampleFormControlSelect1">It is human nature to steal from others.</label>
+            <select class="form-control" id="exampleFormControlSelect10">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+
+
+        <button class="submit" type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</body>
+<!-- <script type="text/javascript" src="javascript/server.js"></script> -->
+<script>
+
+    $(".submit").on("click", function (event) {
+        event.preventDefault();
+        var newFriend = {
+            name: $("#nameguy").val().trim(),
+            photo: $("#exampleFormControlFile1").val().trim(),
+            scores: [$("#exampleFormControlSelect1").val().trim(),
+            $("#exampleFormControlSelect2").val().trim(),
+            $("#exampleFormControlSelect3").val().trim(),
+            $("#exampleFormControlSelect4").val().trim(),
+            $("#exampleFormControlSelect5").val().trim(),
+            $("#exampleFormControlSelect6").val().trim(),
+            $("#exampleFormControlSelect7").val().trim(),
+            $("#exampleFormControlSelect8").val().trim(),
+            $("#exampleFormControlSelect9").val().trim(),
+            $("#exampleFormControlSelect10").val().trim()
+            ]
+        };
+        
+        $.post("/api/friends", newFriend)
+            .then(function (data) {
+                for(var i = 0; i < friends.length; i++){
+                      var totalDifference =  ((newFriend.scores[0] - friends[i].scores[0]) * -1) +
+                        ((newFriend.scores[1] - friends[i].scores[1]) * -1) +
+                        ((newFriend.scores[2] - friends[i].scores[2]) * -1) +
+                        ((newFriend.scores[3] - friends[i].scores[3]) * -1) +
+                        ((newFriend.scores[4] - friends[i].scores[4]) * -1) +
+                        ((newFriend.scores[5] - friends[i].scores[5]) * -1) +
+                        ((newFriend.scores[6] - friends[i].scores[6]) * -1) +
+                        ((newFriend.scores[7] - friends[i].scores[7]) * -1) +
+                        ((newFriend.scores[8] - friends[i].scores[8]) * -1) +
+                        ((newFriend.scores[9] - friends[i].scores[9]) * -1);
+                   
+                }
+            });
+    });
+</script>
+
+</html>
