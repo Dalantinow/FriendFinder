@@ -20,14 +20,15 @@
         <div class="form-group">
             <label for="name">
                 <h1>Name:</h1>
+                <input type="name" class="form-control" id="nameguy" placeholder="name">
             </label>
             <form>
                 <div class="form-group">
-                  <label for="exampleFormControlFile1">Upload Image File:</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <label for="exampleFormControlFile1">Upload Profile Image File:</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
-              </form>
-            <input type="name" class="form-control" id="nameguy" placeholder="name">
+            </form>
+            
         </div>
         <h2>Fill out the questionnaire, 1 signifies you strongly disagree and 5 means you strongly agree.</h2>
         <div class="form-group-one">
@@ -166,21 +167,21 @@
             ]
         };
         
-        $.post("/api/friends", newFriend)
-            .then(function (data) {
-                for(var i = 0; i < friends.length; i++){
-                      var totalDifference =  ((newFriend.scores[0] - friends[i].scores[0]) * -1) +
-                        ((newFriend.scores[1] - friends[i].scores[1]) * -1) +
-                        ((newFriend.scores[2] - friends[i].scores[2]) * -1) +
-                        ((newFriend.scores[3] - friends[i].scores[3]) * -1) +
-                        ((newFriend.scores[4] - friends[i].scores[4]) * -1) +
-                        ((newFriend.scores[5] - friends[i].scores[5]) * -1) +
-                        ((newFriend.scores[6] - friends[i].scores[6]) * -1) +
-                        ((newFriend.scores[7] - friends[i].scores[7]) * -1) +
-                        ((newFriend.scores[8] - friends[i].scores[8]) * -1) +
-                        ((newFriend.scores[9] - friends[i].scores[9]) * -1);
-                   
-                }
+        $.post("/api/friends", newFriend, 
+            function (data) {
+                alert("New friend info added!")
+                alert("Your new friend is")
+                $("#nameguy").val("").trim();
+                $("#exampleFormControlFile1").val("");
+                $("#exampleFormControlSelect1").val("");
+                $("#exampleFormControlSelect2").val("");
+                $("#exampleFormControlSelect4").val("");
+                $("#exampleFormControlSelect5").val("");
+                $("#exampleFormControlSelect6").val("");
+                $("#exampleFormControlSelect7").val("");
+                $("#exampleFormControlSelect8").val("");
+                $("#exampleFormControlSelect9").val("");
+                $("#exampleFormControlSelect10").val("");
             });
     });
 </script>
